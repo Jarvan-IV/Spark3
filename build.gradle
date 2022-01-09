@@ -1,0 +1,40 @@
+plugins {
+    id 'org.springframework.boot' version '2.6.2'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+}
+
+group = 'com.xp'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    implementation ('org.apache.spark:spark-sql_2.12:3.2.0') {
+        exclude group: "org.codehaus.janino", module: "janino"
+        exclude group: "org.codehaus.janino", module: "commons-compiler"
+    }
+    implementation "org.codehaus.janino:commons-compiler:3.0.16"
+    implementation "org.codehaus.janino:janino:3.0.16"
+
+    implementation 'org.postgresql:postgresql:42.3.1'
+
+}
+
+test {
+    useJUnitPlatform()
+}
