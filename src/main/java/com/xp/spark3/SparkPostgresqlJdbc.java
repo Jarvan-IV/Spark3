@@ -29,7 +29,6 @@ public class SparkPostgresqlJdbc {
 
 
         //增加数据库的用户名(user)密码(password),指定postgresql驱动(driver)
-        System.out.println("增加数据库的用户名(user)密码(password),指定postgresql驱动(driver)");
         connectionProperties.put("user","postgres");
         connectionProperties.put("password","xiapeng");
         connectionProperties.put("driver","org.postgresql.Driver");
